@@ -1,2 +1,2 @@
 # js-navbar-scroll
-Sticky navigation bar.
+Pure javascript example to create a single page app with scroll navigation.
