@@ -13,8 +13,8 @@ class Navbar {
     // check window position and set current section
     for (let i = 0; i < this.sections.length; i++) {
       if (
-        this.sections[i].offsetTop <= document.body.scrollTop &&
-        this.sections[i].offsetTop + this.sections[i].offsetHeight > document.body.scrollTop
+        this.sections[i].offsetTop <= window.pageYOffset &&
+        this.sections[i].offsetTop + this.sections[i].offsetHeight > window.pageYOffset
       ) {
         pos = i
       }
@@ -64,9 +64,10 @@ class Navbar {
           scrollTo(elem, to, duration - 10)
       }, 10)
     })
-
+    
     // call scroll to selected element
-    scrollTo(document.body, document.getElementById(elem.innerHTML.toLowerCase()).offsetTop, 600)
+    const documentElem = (document.scrollingElement === undefined) ? document.documentElement : document.body
+    scrollTo(documentElem, document.getElementById(elem.innerHTML.toLowerCase()).offsetTop, 600)
   }
 
 }
